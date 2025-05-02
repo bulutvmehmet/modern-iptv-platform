@@ -24,12 +24,27 @@ export default function DashboardPage() {
   // Format date
   const formatDate = (dateString: string) => {
     if (!dateString) return 'N/A';
-    const date = new Date(dateString);
-    return new Intl.DateTimeFormat('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    }).format(date);
+    
+    try {
+      // Convert timestamp to date if it's a number
+      const date = typeof dateString === 'number' 
+        ? new Date(dateString * 1000)  // Convert Unix timestamp to milliseconds
+        : new Date(dateString);
+        
+      // Check if date is valid
+      if (isNaN(date.getTime())) {
+        return 'N/A';
+      }
+      
+      return new Intl.DateTimeFormat('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      }).format(date);
+    } catch (error) {
+      console.error('Error formatting date:', error);
+      return 'N/A';
+    }
   };
 
   return (

@@ -89,39 +89,39 @@ export default function DashboardLayout({
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <Link href="/dashboard" legacyBehavior passHref>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                    <Link href="/dashboard">
                       <Home className="mr-2 h-4 w-4" />
                       <span>Home</span>
-                    </NavigationMenuLink>
-                  </Link>
+                    </Link>
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <Link href="/dashboard/live" legacyBehavior passHref>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                    <Link href="/dashboard/live">
                       <Tv className="mr-2 h-4 w-4" />
                       <span>Live TV</span>
-                    </NavigationMenuLink>
-                  </Link>
+                    </Link>
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <Link href="/dashboard/movies" legacyBehavior passHref>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                    <Link href="/dashboard/movies">
                       <Film className="mr-2 h-4 w-4" />
                       <span>Movies</span>
-                    </NavigationMenuLink>
-                  </Link>
+                    </Link>
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <Link href="/dashboard/series" legacyBehavior passHref>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                    <Link href="/dashboard/series">
                       <Layers className="mr-2 h-4 w-4" />
                       <span>Series</span>
-                    </NavigationMenuLink>
-                  </Link>
+                    </Link>
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
@@ -132,20 +132,20 @@ export default function DashboardLayout({
                   <NavigationMenuContent>
                     <ul className="grid w-[200px] gap-3 p-4">
                       <li>
-                        <Link href="/dashboard/favorites" legacyBehavior passHref>
-                          <NavigationMenuLink className="flex items-center gap-2 p-2 hover:bg-accent rounded-md">
+                        <NavigationMenuLink asChild className="flex items-center gap-2 p-2 hover:bg-accent rounded-md">
+                          <Link href="/dashboard/favorites">
                             <Star className="h-4 w-4" />
                             <span>Favorites</span>
-                          </NavigationMenuLink>
-                        </Link>
+                          </Link>
+                        </NavigationMenuLink>
                       </li>
                       <li>
-                        <Link href="/dashboard/history" legacyBehavior passHref>
-                          <NavigationMenuLink className="flex items-center gap-2 p-2 hover:bg-accent rounded-md">
+                        <NavigationMenuLink asChild className="flex items-center gap-2 p-2 hover:bg-accent rounded-md">
+                          <Link href="/dashboard/history">
                             <History className="h-4 w-4" />
                             <span>Watch History</span>
-                          </NavigationMenuLink>
-                        </Link>
+                          </Link>
+                        </NavigationMenuLink>
                       </li>
                     </ul>
                   </NavigationMenuContent>
