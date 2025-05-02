@@ -66,7 +66,6 @@ export default function HistoryPage() {
           <span>Clear All History</span>
         </Button>
       </div>
-      
       <Tabs
         defaultValue="all"
         value={activeTab}
@@ -136,7 +135,7 @@ export default function HistoryPage() {
                             : `/dashboard/live/${item.id}`
                         }
                         className="flex items-center gap-4 flex-1"
-                      >
+                        legacyBehavior>
                         <div className="flex-shrink-0 w-16 h-16 rounded overflow-hidden bg-muted">
                           {item.poster ? (
                             <img

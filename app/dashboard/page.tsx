@@ -22,14 +22,43 @@ export default function DashboardPage() {
   }, [watchHistory]);
 
   // Format date
-  const formatDate = (dateString: string) => {
-    if (!dateString) return 'N/A';
-    const date = new Date(dateString);
-    return new Intl.DateTimeFormat('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    }).format(date);
+  const formatDate = (dateValue: string | number | undefined) => {
+    if (dateValue === undefined || dateValue === null || dateValue === '') return 'N/A';
+    
+    try {
+      let date: Date;
+      
+      // Handle different types of date inputs
+      if (typeof dateValue === 'number') {
+        // If it's a Unix timestamp (seconds since epoch)
+        date = new Date(dateValue * 1000);
+      } else if (typeof dateValue === 'string') {
+        // Try to parse string as number first (for string timestamps)
+        const numValue = Number(dateValue);
+        if (!isNaN(numValue)) {
+          date = new Date(numValue * 1000); // Assume it's a Unix timestamp in seconds
+        } else {
+          // Otherwise treat as date string
+          date = new Date(dateValue);
+        }
+      } else {
+        return 'N/A';
+      }
+      
+      // Check if date is valid
+      if (isNaN(date.getTime())) {
+        return 'N/A';
+      }
+      
+      return new Intl.DateTimeFormat('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      }).format(date);
+    } catch (error) {
+      console.error('Error formatting date:', error, 'Value:', dateValue);
+      return 'N/A';
+    }
   };
 
   return (
@@ -71,29 +100,28 @@ export default function DashboardPage() {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-3 gap-4">
-              <Link href="/dashboard/live">
-                <Button variant="outline" className="w-full h-24 flex flex-col gap-2">
+              <Button variant="outline" className="w-full h-24 flex flex-col gap-2" asChild>
+                <Link href="/dashboard/live">
                   <Tv className="h-6 w-6" />
                   <span>Live TV</span>
-                </Button>
-              </Link>
-              <Link href="/dashboard/movies">
-                <Button variant="outline" className="w-full h-24 flex flex-col gap-2">
+                </Link>
+              </Button>
+              <Button variant="outline" className="w-full h-24 flex flex-col gap-2" asChild>
+                <Link href="/dashboard/movies">
                   <Film className="h-6 w-6" />
                   <span>Movies</span>
-                </Button>
-              </Link>
-              <Link href="/dashboard/series">
-                <Button variant="outline" className="w-full h-24 flex flex-col gap-2">
+                </Link>
+              </Button>
+              <Button variant="outline" className="w-full h-24 flex flex-col gap-2" asChild>
+                <Link href="/dashboard/series">
                   <Layers className="h-6 w-6" />
                   <span>Series</span>
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </CardContent>
         </Card>
       </div>
-      
       {recentItems.length > 0 && (
         <Card>
           <CardHeader className="flex flex-row items-center justify-between">
@@ -103,12 +131,12 @@ export default function DashboardPage() {
                 Pick up where you left off
               </CardDescription>
             </div>
-            <Link href="/dashboard/history">
-              <Button variant="ghost" size="sm" className="gap-1">
+            <Button variant="ghost" size="sm" className="gap-1" asChild>
+              <Link href="/dashboard/history">
                 <History className="h-4 w-4" />
                 <span>View All</span>
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -126,8 +154,7 @@ export default function DashboardPage() {
                         }`
                       : `/dashboard/live/${item.id}`
                   }
-                >
-                  <div className="relative group overflow-hidden rounded-lg">
+                  className="relative group overflow-hidden rounded-lg block">
                     <div
                       className="aspect-[2/3] bg-cover bg-center"
                       style={{
