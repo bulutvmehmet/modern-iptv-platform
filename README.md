@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Modern IPTV/OTT Platform
+
+A modern IPTV/OTT (Over-The-Top) platform built with Next.js, TypeScript, and Tailwind CSS. This application provides a Netflix-like interface for streaming live TV channels, movies, and series.
+
+## Features
+
+- **Modern UI**: Netflix-style interface with smooth animations and transitions
+- **Responsive Design**: Works on mobile, tablet, and desktop devices
+- **High Performance**: Virtual scrolling, lazy loading, and code splitting for optimal performance
+- **Xtream Codes Integration**: Support for IPTV service providers using Xtream Codes API
+- **TMDB Integration**: Enhanced content details using The Movie Database API
+- **Live TV**: Watch live TV channels with EPG (Electronic Program Guide) support
+- **VOD Content**: Browse and watch movies and series with detailed information
+- **User Preferences**: Theme switching, language selection, and playback settings
+- **Parental Controls**: PIN protection for age-restricted content and categories
+- **Favorites & History**: Track watched content and save favorites for quick access
+
+## Tech Stack
+
+- **Framework**: Next.js with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui (based on Radix UI)
+- **State Management**: Zustand
+- **Video Playback**: HLS.js
+- **API Integration**: Axios, React Query
+- **Form Handling**: React Hook Form, Zod
+- **Animations**: Framer Motion
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Authentication
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The platform supports authentication with Xtream Codes panels. Users can log in with:
+- Server URL/DNS
+- Username
+- Password
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## License
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License.
