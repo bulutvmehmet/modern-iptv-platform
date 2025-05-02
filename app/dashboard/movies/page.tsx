@@ -105,7 +105,6 @@ export default function MoviesPage() {
           />
         </div>
       </div>
-      
       {categoriesLoading ? (
         <div className="text-center py-8">Loading categories...</div>
       ) : categoriesError ? (
@@ -165,7 +164,7 @@ export default function MoviesPage() {
                           key={movie.stream_id}
                           href={`/dashboard/movies/${movie.stream_id}`}
                           className="group"
-                        >
+                          legacyBehavior>
                           <div className="relative overflow-hidden rounded-lg aspect-[2/3]">
                             <div
                               className="w-full h-full bg-cover bg-center transition-transform group-hover:scale-105"

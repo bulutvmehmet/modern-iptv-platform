@@ -49,7 +49,6 @@ export default function FavoritesPage() {
           <span>Clear All Favorites</span>
         </Button>
       </div>
-      
       <Tabs
         defaultValue="all"
         value={activeTab}
@@ -115,7 +114,7 @@ export default function FavoritesPage() {
                             ? `/dashboard/series/${item.id}`
                             : `/dashboard/live/${item.id}`
                         }
-                      >
+                        legacyBehavior>
                         <div className="relative overflow-hidden rounded-lg aspect-[2/3]">
                           <div
                             className="w-full h-full bg-cover bg-center transition-transform group-hover:scale-105"

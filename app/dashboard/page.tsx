@@ -86,19 +86,19 @@ export default function DashboardPage() {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-3 gap-4">
-              <Link href="/dashboard/live">
+              <Link href="/dashboard/live" legacyBehavior>
                 <Button variant="outline" className="w-full h-24 flex flex-col gap-2">
                   <Tv className="h-6 w-6" />
                   <span>Live TV</span>
                 </Button>
               </Link>
-              <Link href="/dashboard/movies">
+              <Link href="/dashboard/movies" legacyBehavior>
                 <Button variant="outline" className="w-full h-24 flex flex-col gap-2">
                   <Film className="h-6 w-6" />
                   <span>Movies</span>
                 </Button>
               </Link>
-              <Link href="/dashboard/series">
+              <Link href="/dashboard/series" legacyBehavior>
                 <Button variant="outline" className="w-full h-24 flex flex-col gap-2">
                   <Layers className="h-6 w-6" />
                   <span>Series</span>
@@ -108,7 +108,6 @@ export default function DashboardPage() {
           </CardContent>
         </Card>
       </div>
-      
       {recentItems.length > 0 && (
         <Card>
           <CardHeader className="flex flex-row items-center justify-between">
@@ -118,7 +117,7 @@ export default function DashboardPage() {
                 Pick up where you left off
               </CardDescription>
             </div>
-            <Link href="/dashboard/history">
+            <Link href="/dashboard/history" legacyBehavior>
               <Button variant="ghost" size="sm" className="gap-1">
                 <History className="h-4 w-4" />
                 <span>View All</span>
@@ -141,7 +140,7 @@ export default function DashboardPage() {
                         }`
                       : `/dashboard/live/${item.id}`
                   }
-                >
+                  legacyBehavior>
                   <div className="relative group overflow-hidden rounded-lg">
                     <div
                       className="aspect-[2/3] bg-cover bg-center"

@@ -148,7 +148,6 @@ export default function SearchPage() {
           <Button type="submit">Search</Button>
         </form>
       </div>
-      
       {query && (
         <div className="space-y-6">
           <Tabs
@@ -210,7 +209,7 @@ export default function SearchPage() {
                             key={channel.stream_id}
                             href={`/dashboard/live/${channel.stream_id}`}
                             className="group"
-                          >
+                            legacyBehavior>
                             <div className="relative overflow-hidden rounded-lg aspect-video">
                               <div
                                 className="w-full h-full bg-cover bg-center transition-transform group-hover:scale-105 flex items-center justify-center"
@@ -285,7 +284,7 @@ export default function SearchPage() {
                             key={movie.stream_id}
                             href={`/dashboard/movies/${movie.stream_id}`}
                             className="group"
-                          >
+                            legacyBehavior>
                             <div className="relative overflow-hidden rounded-lg aspect-[2/3]">
                               <div
                                 className="w-full h-full bg-cover bg-center transition-transform group-hover:scale-105"
@@ -363,7 +362,7 @@ export default function SearchPage() {
                             key={series.series_id}
                             href={`/dashboard/series/${series.series_id}`}
                             className="group"
-                          >
+                            legacyBehavior>
                             <div className="relative overflow-hidden rounded-lg aspect-[2/3]">
                               <div
                                 className="w-full h-full bg-cover bg-center transition-transform group-hover:scale-105"
