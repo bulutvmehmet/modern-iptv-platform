@@ -208,8 +208,7 @@ export default function SearchPage() {
                           <Link
                             key={channel.stream_id}
                             href={`/dashboard/live/${channel.stream_id}`}
-                            className="group"
-                            legacyBehavior>
+                            className="group block">
                             <div className="relative overflow-hidden rounded-lg aspect-video">
                               <div
                                 className="w-full h-full bg-cover bg-center transition-transform group-hover:scale-105 flex items-center justify-center"
@@ -283,8 +282,7 @@ export default function SearchPage() {
                           <Link
                             key={movie.stream_id}
                             href={`/dashboard/movies/${movie.stream_id}`}
-                            className="group"
-                            legacyBehavior>
+                            className="group block">
                             <div className="relative overflow-hidden rounded-lg aspect-[2/3]">
                               <div
                                 className="w-full h-full bg-cover bg-center transition-transform group-hover:scale-105"
@@ -361,8 +359,7 @@ export default function SearchPage() {
                           <Link
                             key={series.series_id}
                             href={`/dashboard/series/${series.series_id}`}
-                            className="group"
-                            legacyBehavior>
+                            className="group block">
                             <div className="relative overflow-hidden rounded-lg aspect-[2/3]">
                               <div
                                 className="w-full h-full bg-cover bg-center transition-transform group-hover:scale-105"

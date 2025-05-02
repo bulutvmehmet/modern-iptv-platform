@@ -22,15 +22,29 @@ export default function DashboardPage() {
   }, [watchHistory]);
 
   // Format date
-  const formatDate = (dateString: string) => {
-    if (!dateString) return 'N/A';
+  const formatDate = (dateValue: string | number | undefined) => {
+    if (dateValue === undefined || dateValue === null || dateValue === '') return 'N/A';
     
     try {
-      // Convert timestamp to date if it's a number
-      const date = typeof dateString === 'number' 
-        ? new Date(dateString * 1000)  // Convert Unix timestamp to milliseconds
-        : new Date(dateString);
-        
+      let date: Date;
+      
+      // Handle different types of date inputs
+      if (typeof dateValue === 'number') {
+        // If it's a Unix timestamp (seconds since epoch)
+        date = new Date(dateValue * 1000);
+      } else if (typeof dateValue === 'string') {
+        // Try to parse string as number first (for string timestamps)
+        const numValue = Number(dateValue);
+        if (!isNaN(numValue)) {
+          date = new Date(numValue * 1000); // Assume it's a Unix timestamp in seconds
+        } else {
+          // Otherwise treat as date string
+          date = new Date(dateValue);
+        }
+      } else {
+        return 'N/A';
+      }
+      
       // Check if date is valid
       if (isNaN(date.getTime())) {
         return 'N/A';
@@ -42,7 +56,7 @@ export default function DashboardPage() {
         day: 'numeric',
       }).format(date);
     } catch (error) {
-      console.error('Error formatting date:', error);
+      console.error('Error formatting date:', error, 'Value:', dateValue);
       return 'N/A';
     }
   };

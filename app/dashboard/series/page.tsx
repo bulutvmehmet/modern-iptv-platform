@@ -163,8 +163,7 @@ export default function SeriesPage() {
                         <Link
                           key={series.series_id}
                           href={`/dashboard/series/${series.series_id}`}
-                          className="group"
-                          legacyBehavior>
+                          className="group block">
                           <div className="relative overflow-hidden rounded-lg aspect-[2/3]">
                             <div
                               className="w-full h-full bg-cover bg-center transition-transform group-hover:scale-105"
