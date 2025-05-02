@@ -154,7 +154,8 @@ export default function DashboardPage() {
                         }`
                       : `/dashboard/live/${item.id}`
                   }
-                  className="relative group overflow-hidden rounded-lg block">
+                  className="relative group overflow-hidden rounded-lg block"
+                >
                   <div
                     className="aspect-[2/3] bg-cover bg-center"
                     style={{
