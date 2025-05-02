@@ -86,24 +86,24 @@ export default function DashboardPage() {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-3 gap-4">
-              <Link href="/dashboard/live" legacyBehavior>
-                <Button variant="outline" className="w-full h-24 flex flex-col gap-2">
+              <Button variant="outline" className="w-full h-24 flex flex-col gap-2" asChild>
+                <Link href="/dashboard/live">
                   <Tv className="h-6 w-6" />
                   <span>Live TV</span>
-                </Button>
-              </Link>
-              <Link href="/dashboard/movies" legacyBehavior>
-                <Button variant="outline" className="w-full h-24 flex flex-col gap-2">
+                </Link>
+              </Button>
+              <Button variant="outline" className="w-full h-24 flex flex-col gap-2" asChild>
+                <Link href="/dashboard/movies">
                   <Film className="h-6 w-6" />
                   <span>Movies</span>
-                </Button>
-              </Link>
-              <Link href="/dashboard/series" legacyBehavior>
-                <Button variant="outline" className="w-full h-24 flex flex-col gap-2">
+                </Link>
+              </Button>
+              <Button variant="outline" className="w-full h-24 flex flex-col gap-2" asChild>
+                <Link href="/dashboard/series">
                   <Layers className="h-6 w-6" />
                   <span>Series</span>
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </CardContent>
         </Card>
@@ -117,12 +117,12 @@ export default function DashboardPage() {
                 Pick up where you left off
               </CardDescription>
             </div>
-            <Link href="/dashboard/history" legacyBehavior>
-              <Button variant="ghost" size="sm" className="gap-1">
+            <Button variant="ghost" size="sm" className="gap-1" asChild>
+              <Link href="/dashboard/history">
                 <History className="h-4 w-4" />
                 <span>View All</span>
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -140,8 +140,7 @@ export default function DashboardPage() {
                         }`
                       : `/dashboard/live/${item.id}`
                   }
-                  legacyBehavior>
-                  <div className="relative group overflow-hidden rounded-lg">
+                  className="relative group overflow-hidden rounded-lg block">
                     <div
                       className="aspect-[2/3] bg-cover bg-center"
                       style={{

@@ -82,7 +82,7 @@ export default function DashboardLayout({
       <header className="border-b bg-background">
         <div className="container flex h-16 items-center justify-between px-4">
           <div className="flex items-center gap-6">
-            <Link href="/dashboard" className="flex items-center gap-2" legacyBehavior>
+            <Link href="/dashboard" className="flex items-center gap-2">
               <span className="text-xl font-bold">IPTV Platform</span>
             </Link>
             
@@ -90,7 +90,7 @@ export default function DashboardLayout({
               <NavigationMenuList>
                 <NavigationMenuItem>
                   <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                    <Link href="/dashboard" legacyBehavior>
+                    <Link href="/dashboard" className="flex items-center">
                       <Home className="mr-2 h-4 w-4" />
                       <span>Home</span>
                     </Link>
@@ -99,7 +99,7 @@ export default function DashboardLayout({
                 
                 <NavigationMenuItem>
                   <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                    <Link href="/dashboard/live" legacyBehavior>
+                    <Link href="/dashboard/live" className="flex items-center">
                       <Tv className="mr-2 h-4 w-4" />
                       <span>Live TV</span>
                     </Link>
@@ -108,7 +108,7 @@ export default function DashboardLayout({
                 
                 <NavigationMenuItem>
                   <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                    <Link href="/dashboard/movies" legacyBehavior>
+                    <Link href="/dashboard/movies" className="flex items-center">
                       <Film className="mr-2 h-4 w-4" />
                       <span>Movies</span>
                     </Link>
@@ -117,7 +117,7 @@ export default function DashboardLayout({
                 
                 <NavigationMenuItem>
                   <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                    <Link href="/dashboard/series" legacyBehavior>
+                    <Link href="/dashboard/series" className="flex items-center">
                       <Layers className="mr-2 h-4 w-4" />
                       <span>Series</span>
                     </Link>
@@ -133,7 +133,7 @@ export default function DashboardLayout({
                     <ul className="grid w-[200px] gap-3 p-4">
                       <li>
                         <NavigationMenuLink asChild className="flex items-center gap-2 p-2 hover:bg-accent rounded-md">
-                          <Link href="/dashboard/favorites" legacyBehavior>
+                          <Link href="/dashboard/favorites" className="flex items-center gap-2">
                             <Star className="h-4 w-4" />
                             <span>Favorites</span>
                           </Link>
@@ -141,7 +141,7 @@ export default function DashboardLayout({
                       </li>
                       <li>
                         <NavigationMenuLink asChild className="flex items-center gap-2 p-2 hover:bg-accent rounded-md">
-                          <Link href="/dashboard/history" legacyBehavior>
+                          <Link href="/dashboard/history" className="flex items-center gap-2">
                             <History className="h-4 w-4" />
                             <span>Watch History</span>
                           </Link>
@@ -155,11 +155,11 @@ export default function DashboardLayout({
           </div>
           
           <div className="flex items-center gap-4">
-            <Link href="/dashboard/search" legacyBehavior>
-              <Button variant="ghost" size="icon" aria-label="Search">
+            <Button variant="ghost" size="icon" aria-label="Search" asChild>
+              <Link href="/dashboard/search">
                 <Search className="h-5 w-5" />
-              </Button>
-            </Link>
+              </Link>
+            </Button>
             
             <Button
               variant="ghost"
@@ -193,25 +193,25 @@ export default function DashboardLayout({
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem asChild>
-                  <Link href="/dashboard/profile" className="flex items-center" legacyBehavior>
+                  <Link href="/dashboard/profile" className="flex items-center">
                     <User className="mr-2 h-4 w-4" />
                     <span>Profile</span>
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/dashboard/favorites" className="flex items-center" legacyBehavior>
+                  <Link href="/dashboard/favorites" className="flex items-center">
                     <Star className="mr-2 h-4 w-4" />
                     <span>Favorites</span>
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/dashboard/history" className="flex items-center" legacyBehavior>
+                  <Link href="/dashboard/history" className="flex items-center">
                     <History className="mr-2 h-4 w-4" />
                     <span>Watch History</span>
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/dashboard/settings" className="flex items-center" legacyBehavior>
+                  <Link href="/dashboard/settings" className="flex items-center">
                     <Settings className="mr-2 h-4 w-4" />
                     <span>Settings</span>
                   </Link>
