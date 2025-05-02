@@ -8,10 +8,21 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Tv, Film, Layers, History, Clock } from 'lucide-react';
 
+interface WatchHistoryItem {
+  id: string;
+  type: 'movie' | 'series' | 'live';
+  name: string;
+  poster?: string;
+  lastWatched: number;
+  progress?: number;
+  seasonNumber?: number;
+  episodeNumber?: number;
+}
+
 export default function DashboardPage() {
   const { userInfo } = useAuthStore();
   const { watchHistory } = useUserDataStore();
-  const [recentItems, setRecentItems] = useState<any[]>([]);
+  const [recentItems, setRecentItems] = useState<WatchHistoryItem[]>([]);
 
   // Get recent watch history items
   useEffect(() => {
@@ -122,6 +133,7 @@ export default function DashboardPage() {
           </CardContent>
         </Card>
       </div>
+      
       {recentItems.length > 0 && (
         <Card>
           <CardHeader className="flex flex-row items-center justify-between">
