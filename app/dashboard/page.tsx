@@ -155,45 +155,44 @@ export default function DashboardPage() {
                       : `/dashboard/live/${item.id}`
                   }
                   className="relative group overflow-hidden rounded-lg block">
-                    <div
-                      className="aspect-[2/3] bg-cover bg-center"
-                      style={{
-                        backgroundImage: item.poster
-                          ? `url(${item.poster})`
-                          : 'none',
-                        backgroundColor: !item.poster ? 'rgba(0,0,0,0.2)' : 'transparent',
-                      }}
-                    >
-                      {!item.poster && (
-                        <div className="flex items-center justify-center h-full">
-                          {item.type === 'movie' ? (
-                            <Film className="h-12 w-12 text-muted-foreground" />
-                          ) : item.type === 'series' ? (
-                            <Layers className="h-12 w-12 text-muted-foreground" />
-                          ) : (
-                            <Tv className="h-12 w-12 text-muted-foreground" />
-                          )}
-                        </div>
-                      )}
-                    </div>
-                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-                      <h3 className="text-white font-medium truncate">{item.name}</h3>
-                      <div className="flex items-center gap-1 text-xs text-white/80">
-                        <Clock className="h-3 w-3" />
-                        <span>
-                          {new Date(item.lastWatched).toLocaleDateString()}
-                        </span>
-                      </div>
-                    </div>
-                    {item.progress !== undefined && item.progress > 0 && (
-                      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-700">
-                        <div
-                          className="h-full bg-primary"
-                          style={{ width: `${item.progress}%` }}
-                        ></div>
+                  <div
+                    className="aspect-[2/3] bg-cover bg-center"
+                    style={{
+                      backgroundImage: item.poster
+                        ? `url(${item.poster})`
+                        : 'none',
+                      backgroundColor: !item.poster ? 'rgba(0,0,0,0.2)' : 'transparent',
+                    }}
+                  >
+                    {!item.poster && (
+                      <div className="flex items-center justify-center h-full">
+                        {item.type === 'movie' ? (
+                          <Film className="h-12 w-12 text-muted-foreground" />
+                        ) : item.type === 'series' ? (
+                          <Layers className="h-12 w-12 text-muted-foreground" />
+                        ) : (
+                          <Tv className="h-12 w-12 text-muted-foreground" />
+                        )}
                       </div>
                     )}
                   </div>
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
+                    <h3 className="text-white font-medium truncate">{item.name}</h3>
+                    <div className="flex items-center gap-1 text-xs text-white/80">
+                      <Clock className="h-3 w-3" />
+                      <span>
+                        {new Date(item.lastWatched).toLocaleDateString()}
+                      </span>
+                    </div>
+                  </div>
+                  {item.progress !== undefined && item.progress > 0 && (
+                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-700">
+                      <div
+                        className="h-full bg-primary"
+                        style={{ width: `${item.progress}%` }}
+                      ></div>
+                    </div>
+                  )}
                 </Link>
               ))}
             </div>
